@@ -18,7 +18,6 @@ export default function Pokemon() {
   }, [pokemonData]);
   useEffect(() => {
     if (searchText !== '') {
-      console.log(pokemonData, 'pokemon_data');
       const filterByName = pokemonData?.data?.filter((pokemon) => pokemon.name.includes(searchText));
       setFilteredData(filterByName?.length > 0 ? filterByName : pokemonData);
     } else {
