@@ -5,6 +5,7 @@ import login from './login';
 import register from './register';
 import toast from './toast';
 import topic from './topic';
+import pokemon from './pokemon';
 
 export default combineReducers({
   router: connectRouter(history),
@@ -12,4 +13,5 @@ export default combineReducers({
   register,
   toast,
   topic,
+  pokemon,
 });

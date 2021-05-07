@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 export const api = axios.create({
-  baseURL: 'http://localhost:3000/api',
+  baseURL: 'https://pokeapi.co/api/v2',
   timeout: 50000,
   headers: {
     Accept: 'application/json',
