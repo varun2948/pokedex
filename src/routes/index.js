@@ -10,7 +10,6 @@ const indexRoutes = [
     path: '/',
     name: 'Pokemon',
     component: Pokemon,
-    authenticated: true,
   },
 ];
 
