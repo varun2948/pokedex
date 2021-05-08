@@ -1,3 +1,4 @@
+/* eslint-disable import/no-extraneous-dependencies */
 const merge = require('webpack-merge');
 const webpack = require('webpack');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
@@ -12,7 +13,7 @@ const prodConfiguration = () => {
   return merge([
     {
       output: {
-        publicPath: '/',
+        publicPath: '/pokedex/',
         filename: '[name].[contenthash].js',
       },
       optimization: {
