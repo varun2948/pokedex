@@ -26,7 +26,7 @@ export default function Pokemon() {
   }, [searchText]);
   return (
     <div>
-      <h1>Pokemon</h1>
+      {/* <h1>Pokemon</h1> */}
       <PokemonSearch value={searchText} onChange={(e) => setSearchText(e.target.value)} />
       <div className="pokemon_container">
         {filteredData?.map((pokemon) => (
