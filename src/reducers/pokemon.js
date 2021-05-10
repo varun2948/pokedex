@@ -6,9 +6,9 @@ const initialState = {
 };
 
 const getAllPokemonSuccess = (state, action) => {
-  const { results, count } = action.payload.data;
+  const { results } = action.payload.data;
   const addingIndexToPokemonData = results.map((pokemon, index) => ({ id: index + 1, ...pokemon }));
-  return { ...state, pokemon_data: { data: addingIndexToPokemonData, count } };
+  return { ...state, pokemon_data: { data: addingIndexToPokemonData } };
 };
 
 const pokemonReducer = createReducer(initialState, {

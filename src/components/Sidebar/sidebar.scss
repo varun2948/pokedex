@@ -1,0 +1,25 @@
+.sidebar{
+    display: block;
+    flex: 0 0 381px;
+    border: 2px solid red;
+    position: sticky;
+    top: 0;
+    right: 0;
+    height: 100vh;
+    width: 381px;
+    
+    &.active-sidebar{
+      display:none;
+    }
+  }
+
+    .sidebar_container_img{
+      display:flex;
+      justify-content:center;
+      align-items:center;
+    }
+    .sidebar_container_details{
+        padding: 0rem 0.9rem;
+        background:red;
+
+    }
