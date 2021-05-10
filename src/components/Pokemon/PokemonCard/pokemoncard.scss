@@ -97,17 +97,4 @@
   .pokemon_section{
     display: flex;
   }
-  .sidebar{
-    display: block;
-    flex: 0 0 381px;
-    border: 2px solid red;
-    position: sticky;
-    top: 0;
-    right: 0;
-    height: 100vh;
-    width: 381px;
-    
-    &.active-sidebar{
-      display:none;
-    }
-  }
+  
