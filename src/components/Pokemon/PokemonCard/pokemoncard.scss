@@ -1,6 +1,11 @@
 .pokemon_container{
     display:flex;
-    flex-wrap: wrap;
+      /* flex: 0 0 80%; */
+      flex-wrap: wrap;
+      width: calc( 100vw - 381px);
+      &.active-sidebar{
+        width:100%
+      }
 }
 .pokemon-card{
     background:white;
@@ -18,11 +23,11 @@
         margin:0;
         height:3rem;
         text-transform: capitalize;
-        color: #EBEBD3;
+        color: hsl(60, 38%, 87%);
     }
 }
 .pokemon-img{
-    height: 79%;
+    height: 72%;
     width: 100%;
 }
 
@@ -66,4 +71,43 @@
     background-color: dodgerblue;
     color: white;
     transform: rotateY(180deg);
+  }
+
+  .chips{
+    display:flex;
+    position: absolute;
+    top: 14.8rem;
+    left: 0.3rem;
+    .pokemon-type-chip{
+      border-radius: 22px;
+      background: #659eb0;
+      color: black;
+      padding: 3px;
+      width: 77px;
+      height: 27px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-right: 0.1rem;
+      text-transform: capitalize;
+
+    }
+  }
+  
+  .pokemon_section{
+    display: flex;
+  }
+  .sidebar{
+    display: block;
+    flex: 0 0 381px;
+    border: 2px solid red;
+    position: sticky;
+    top: 0;
+    right: 0;
+    height: 100vh;
+    width: 381px;
+    
+    &.active-sidebar{
+      display:none;
+    }
   }

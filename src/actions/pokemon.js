@@ -8,6 +8,14 @@ export const { Types, Creators } = createActions({
   getSinglePokemonRequest: ['pokemonName'],
   getSinglePokemonSuccess: ['payload'],
   getSinglePokemonFailure: null,
+
+  getSinglePokemonRegionRequest: ['pokemonName'],
+  getSinglePokemonRegionSuccess: ['payload'],
+  getSinglePokemonRegionFailure: null,
+
+  getSinglePokemonHabitatRequest: ['pokemonName'],
+  getSinglePokemonHabitatSuccess: ['payload'],
+  getSinglePokemonHabitatFailure: null,
 });
 
 export default Creators;
