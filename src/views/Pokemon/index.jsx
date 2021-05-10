@@ -21,8 +21,8 @@ export default function Pokemon() {
   }, [pokemonData]);
   useEffect(() => {
     if (searchText !== '') {
-      const filterByName = pokemonData?.data?.filter((pokemon) => pokemon.name.includes(searchText));
-      setFilteredData(filterByName?.length > 0 ? filterByName : pokemonData);
+      const filterByName = pokemonData?.data?.filter((pokemon) => pokemon.name.includes(searchText.toLowerCase()));
+      setFilteredData(filterByName?.length > 0 ? filterByName : []);
     } else {
       setFilteredData(pokemonData.data);
     }
