@@ -14,7 +14,7 @@ export default function Pokemon() {
   const { getAllPokemonRequest } = Creators;
   const pokemonData = useSelector((state) => state.pokemon.pokemon_data);
   useEffect(() => {
-    dispatch(getAllPokemonRequest(0, 389));
+    dispatch(getAllPokemonRequest(0, 386));
   }, []);
   useEffect(() => {
     setFilteredData(pokemonData.data);
@@ -27,9 +27,10 @@ export default function Pokemon() {
       setFilteredData(pokemonData.data);
     }
   }, [searchText]);
+
   return (
     <div>
-      <h1>Pokemon</h1>
+      <h1>Pokedex</h1>
       <PokemonSearch value={searchText} onChange={(e) => setSearchText(e.target.value)} />
       <section className="pokemon_section">
         <div className={`pokemon_container ${!activeSidebar ? 'active-sidebar' : ''} `}>

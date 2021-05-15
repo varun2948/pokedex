@@ -16,6 +16,10 @@ export const { Types, Creators } = createActions({
   getSinglePokemonHabitatRequest: ['pokemonName'],
   getSinglePokemonHabitatSuccess: ['payload'],
   getSinglePokemonHabitatFailure: null,
+
+  getSinglePokemonEvolutionRequest: ['pokemonId'],
+  getSinglePokemonEvolutionSuccess: ['payload'],
+  getSinglePokemonEvolutionFailure: null,
 });
 
 export default Creators;

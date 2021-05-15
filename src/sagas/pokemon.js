@@ -2,7 +2,13 @@
 /* eslint-disable no-console */
 import { call, put, takeLatest, all } from 'redux-saga/effects';
 import pokemonActions, { Types } from '@Actions/pokemon';
-import { getAllPokemon, getSinglePokemon, getSinglePokemonRegion, getSinglePokemonHabitat } from '@Services/pokemon';
+import {
+  getAllPokemon,
+  getSinglePokemon,
+  getSinglePokemonRegion,
+  getSinglePokemonHabitat,
+  getSinglePokemonEvolution,
+} from '@Services/pokemon';
 import normalizer from '@src/utils/normalizer';
 
 export function* getAllPokemonRequest(action) {
@@ -67,12 +73,22 @@ export function* getSinglePokemonHabitatRequest(action) {
     yield put(pokemonActions.getSinglePokemonHabitatFailure());
   }
 }
+export function* getSinglePokemonEvolutionRequest(action) {
+  try {
+    const { pokemonId } = action;
+    const response = yield call(getSinglePokemonEvolution, pokemonId);
+    yield put(pokemonActions.getSinglePokemonEvolutionSuccess({ data: response.data }));
+  } catch (error) {
+    yield put(pokemonActions.getSinglePokemonEvolutionFailure());
+  }
+}
 
 function* pokemonWatcher() {
   yield takeLatest(Types.GET_ALL_POKEMON_REQUEST, getAllPokemonRequest);
   yield takeLatest(Types.GET_SINGLE_POKEMON_REQUEST, getSinglePokemonRequest);
   yield takeLatest(Types.GET_SINGLE_POKEMON_REGION_REQUEST, getSinglePokemonRegionRequest);
   yield takeLatest(Types.GET_SINGLE_POKEMON_HABITAT_REQUEST, getSinglePokemonHabitatRequest);
+  yield takeLatest(Types.GET_SINGLE_POKEMON_EVOLUTION_REQUEST, getSinglePokemonEvolutionRequest);
   //   yield takeLatest(Types.LOGOUT_REQUEST, logoutRequest);
 }
 
