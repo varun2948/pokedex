@@ -15,7 +15,7 @@ export function* getAllPokemonRequest(action) {
   try {
     const { offset, limit } = action;
     const getAllPokemonResponse = yield call(getAllPokemon, offset, limit);
-    yield put(pokemonActions.getAllPokemonSuccess({ data: getAllPokemonResponse.data }));
+    // yield put(pokemonActions.getAllPokemonSuccess({ data: getAllPokemonResponse.data }));
     const getSinglePokemonsResponse = yield all(
       getAllPokemonResponse.data.results.map((item) => call(getSinglePokemon, item.name)),
     );

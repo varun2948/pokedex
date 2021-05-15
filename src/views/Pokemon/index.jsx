@@ -13,6 +13,7 @@ export default function Pokemon() {
   const [selectedPokemonId, setSelectedPokemonId] = useState(null);
   const { getAllPokemonRequest } = Creators;
   const pokemonData = useSelector((state) => state.pokemon.pokemon_data);
+  // const isLoading = useSelector((state) => state.pokemon.isLoading);
   useEffect(() => {
     dispatch(getAllPokemonRequest(0, 386));
   }, []);
@@ -31,22 +32,28 @@ export default function Pokemon() {
   return (
     <div>
       <h1>Pokedex</h1>
-      <PokemonSearch value={searchText} onChange={(e) => setSearchText(e.target.value)} />
-      <section className="pokemon_section">
-        <div className={`pokemon_container ${!activeSidebar ? 'active-sidebar' : ''} `}>
-          {filteredData?.map((pokemon) => (
-            <PokemonCard
-              name={pokemon.name}
-              id={pokemon.id}
-              types={pokemon.types}
-              activeSidebar={activeSidebar}
-              setSelectedPokemonId={setSelectedPokemonId}
-              setActiveSidebar={setActiveSidebar}
-            />
-          ))}
-        </div>
-        <Sidebar activeSidebar={activeSidebar} selectedPokemonId={selectedPokemonId} />
-      </section>
+      {!filteredData ? (
+        <h1>Loading...</h1>
+      ) : (
+        <>
+          <PokemonSearch value={searchText} onChange={(e) => setSearchText(e.target.value)} />
+          <section className="pokemon_section">
+            <div className={`pokemon_container ${!activeSidebar ? 'active-sidebar' : ''} `}>
+              {filteredData?.map((pokemon) => (
+                <PokemonCard
+                  name={pokemon.name}
+                  id={pokemon.id}
+                  types={pokemon.types}
+                  activeSidebar={activeSidebar}
+                  setSelectedPokemonId={setSelectedPokemonId}
+                  setActiveSidebar={setActiveSidebar}
+                />
+              ))}
+            </div>
+            <Sidebar activeSidebar={activeSidebar} selectedPokemonId={selectedPokemonId} />
+          </section>
+        </>
+      )}
     </div>
   );
 }
